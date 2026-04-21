@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    color: white;
+}
+
+.app {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.15);
+    padding: 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.balance-card {
+    text-align: right;
+    background: rgba(255,215,0,0.2);
+    padding: 8px 15px;
+    border-radius: 30px;
+}
+
+.balance-label {
+    font-size: 12px;
+    opacity: 0.8;
+    display: block;
+}
+
+.balance-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+}
+
+.tap-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.coin-container {
+    perspective: 1000px;
+}
+
+.coin {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle at 30% 30%, #FFD700, #FFA500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: transform 0.05s ease;
+    cursor: pointer;
+}
+
+.coin:active {
+    transform: scale(0.95);
+}
+
+.coin-emoji {
+    font-size: 80px;
+}
+
+.tap-hint {
+    margin-top: 20px;
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.stats-panel {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.stat {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    padding: 12px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 12px;
+    opacity: 0.7;
+    display: block;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+
+.boosters {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.booster-btn {
+    flex: 1;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 12px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.booster-btn:active {
+    transform: scale(0.98);
+    background: rgba(0,0,0,0.5);
+}
+
+.booster-icon {
+    font-size: 24px;
+    display: block;
+}
+
+.booster-name {
+    font-size: 12px;
+    display: block;
+    margin: 5px 0;
+}
+
+.booster-price {
+    font-size: 11px;
+    color: #FFD700;
+}
+
+@keyframes tap-ripple {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+.tap-effect {
+    position: fixed;
+    pointer-events: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    animation: tap-ripple 0.4s ease-out forwards;
+    z-index: 1000;
+}
